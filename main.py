@@ -5,19 +5,16 @@ from pygame.locals import *
 from chess_board import chess_board
 
 WINDOW_WIDTH  = 800
-WINDOW_HEIGHT = 600
+WINDOW_HEIGHT = 800
 
 pygame.init()
 display = pygame.display.set_mode([WINDOW_WIDTH, WINDOW_HEIGHT])
 clock = pygame.time.Clock()
 
 running = True
-chess_board = chess_board()
+chess_board = chess_board(WINDOW_WIDTH, WINDOW_HEIGHT)
 
 while running == True:
-    
-    display.fill((0,0,0))
-    
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
@@ -32,4 +29,3 @@ while running == True:
     chess_board.draw(display)
     clock.tick(60)
     pygame.display.flip()
-
